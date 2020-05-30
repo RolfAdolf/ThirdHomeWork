@@ -1,0 +1,31 @@
+1)
+F = @(x) sin(exp(x));
+X = linspace(-3, 3, 100)
+Y = F(x)
+hold on;
+plot(X, Y, X, 0.*X, ':'); grid on;
+z = ginput(1);
+[zr, fr] = fzero(F, z(1))
+plot(zr, fr, 'r*', z(1), z(2), 'g*')
+
+
+2)
+F = @(x)sin(x.*(1-x));
+X = linspace(-0.001, 2*pi+0.001, 100)
+Y = F(x)
+hold on;
+plot(X, Y, X, 0.*X, ':'); grid on;
+z = ginput(1);
+[zr, fr] = fzero(F, z(1))
+plot(zr, fr, 'r*', z(1), z(2), 'g*')
+
+3)F = @(x)x.*sin(x) - cos(x)
+X = linspace(-0.001, 4*pi+0.001, 100)
+Y = F(x)
+hold on;
+plot(X, Y, X, 0.*X, ':'); grid on;
+z = ginput(1);
+[zr, fr] = fzero(F, z(1))
+plot(zr, fr, 'r*', z(1), z(2), 'g*')
+
+
