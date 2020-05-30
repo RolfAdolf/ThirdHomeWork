@@ -1,0 +1,61 @@
+1)
+ a1 = 1;
+   b1 = 2;
+   F = @(x)1./((a1.*cos(x) + b1.*sin(x)).^2)
+   X = linspace(0, 2*(pi)/3, 100);
+   Y = F(X)
+   plot(X, Y)
+   hold on
+   [Xm, Ym] = fminbnd(F, 0, (2*pi/3))
+   plot(Xm, Ym, 'r*', 0, F(0), 'k*', 2*pi/3, F(2*pi/3), 'k*')
+
+
+
+2)
+   F = @(x)2 - abs(x).*exp(-abs(x-1))
+   X = linspace(0, 4, 150);
+   Y = F(X)
+   plot(X, Y)
+   hold on
+   [Xm, Ym] = fminbnd(F, 0, 4)
+   plot(Xm, Ym, 'r*', 0, F(0), 'k*', 4, F(4), 'k*')
+
+
+3)
+   m = input('m = ')
+   F = @(x) Furie(x, m)
+   X = linspace(0, 2*pi, 150);
+   Y = F(X)
+   plot(X, Y)
+   hold on
+   [Xm, Ym] = fminbnd(F, 0, 4)
+   plot(Xm, Ym, 'r*', 0, F(0), 'k*', 2*pi, F(2*pi), 'k*')
+   
+   Furie.mlx:
+   function z = Furie(x, k)
+    m = 0;
+    for i = 1:k
+     m = m + (cos(i.*x) - sin(i.*x)).^2;
+    end
+    z = m;
+   end
+   
+4)
+m = input('m = ')
+    d = input('d = ')
+   F = @(x) Furie(x, m, d)
+   X = linspace(0, 2*pi, 150);
+   Y = F(X)
+   plot(X, Y)
+   hold on
+   [Xm, Ym] = fminbnd(F, 0, 4)
+   plot(Xm, Ym, 'r*', 0, F(0), 'k*', 2*pi, F(2*pi), 'k*')
+   
+Furie.mlx:
+function z = Furie(x, k, d)
+m = 0;
+for i = 1:k
+    m = m + (d(i) - sin(i.*x)).^2;
+end
+    z = m;
+end
