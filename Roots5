@@ -1,0 +1,11 @@
+F = @(x)cos(x) - exp(0.001+x.^2);
+   f = 'cos(x) - exp(0.001+x.^2)';
+X = linspace(-4, 4, 150)
+Y = F(x)
+hold on;
+grid on;
+a = solve(f);
+plot(X, Y, X, 0.*X, ':', a, 0, 'k*'); grid on;
+z = ginput(1);
+[zr, fr] = fzero(F, z(1))
+plot(zr, fr, 'r*', z(1), z(2), 'g*')
