@@ -21,7 +21,7 @@ plot(x_m, y_m, 'r*');
 plot(x_m, y_m, 'r*');
 hold off
 
-2)
+b)
 clear;
 x = linspace(0, 1, 100);
 m = 3;
@@ -54,7 +54,7 @@ plot(x_m, y_m, 'r*');
 hold off
    
    
-3)
+c)
 clear;
 x = linspace(0, 1, 100);
 m = 3;
