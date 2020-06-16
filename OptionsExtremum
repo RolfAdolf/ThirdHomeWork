@@ -1,0 +1,87 @@
+a)
+clear;
+x = linspace(0, 1, 100);
+a = 0; b =2*pi;
+m = 3;
+f = @(al, x)x.^al.*log(x);
+y = 0;
+hold on
+for k=1:m
+    y = f(2^k, x);
+    plot(x, y); grid on; 
+end;
+T = ['x^a ln x'];
+plot(x, y); grid on; 
+xlabel('x'); ylabel('y'); title(T)
+[x_m, y_m] = fminbnd(@(x) f(2, x), 0, 7);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(4, x), 0, 7);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(8, x), 0, 7);
+plot(x_m, y_m, 'r*');
+hold off
+
+2)
+clear;
+x = linspace(0, 1, 100);
+m = 3;
+f = @(a1, b1, x)x.^a1.*exp(-b1.*x);
+hold on
+y = f(2, 1, x);
+plot(x, y);
+y = f(2, 2, x);
+plot(x, y);
+y = f(4, 1, x);
+plot(x, y);
+y = f(4, 2, x);
+plot(x, y);
+y = f(8, 1, x);
+plot(x, y);
+y = f(8, 2, x);
+plot(x, y);
+[x_m, y_m] = fminbnd(@(x) f(2, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(2, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(4, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(4, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(8, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(8, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+hold off
+   
+   
+3)
+clear;
+x = linspace(0, 1, 100);
+m = 3;
+f = @(a1, b1, x)x.^a1.*(1-x).^b1;
+hold on
+y = f(2, 1, x);
+plot(x, y);
+y = f(2, 2, x);
+plot(x, y);
+y = f(4, 1, x);
+plot(x, y);
+y = f(4, 2, x);
+plot(x, y);
+y = f(8, 1, x);
+plot(x, y);
+y = f(8, 2, x);
+plot(x, y);
+[x_m, y_m] = fminbnd(@(x) f(2, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(2, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(4, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(4, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(8, 1, x), 0, 1);
+plot(x_m, y_m, 'r*');
+[x_m, y_m] = fminbnd(@(x) f(8, 2, x), 0, 1);
+plot(x_m, y_m, 'r*');
+hold off
