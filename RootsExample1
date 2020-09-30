@@ -1,3 +1,7 @@
-F=@(x) x.*x-1;
-x = fzero(F, 0.5);
-plot(linspace(-4, 4, 200), F(linspace(-4, 4, 200)), x, F(x), 'k*')
+x = sym('x');
+f = x^2 - 1;
+roots = solve(f);
+X = linspace(-4, 4, 200);
+hold on;
+ezplot(f, [-4 4]);
+plot(roots, subs(f, roots), 'k*');
