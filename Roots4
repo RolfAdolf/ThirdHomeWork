@@ -1,4 +1,4 @@
    syms x;
-   rootsFzr = fzero('x^2-1',0)
+   rootsFzr = fzero('x^2-1', 0)
    p= x^2+1 ==0;
-   rootsSlv = solve(p);
+   rootsSlv = solve(p)
